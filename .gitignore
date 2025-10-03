@@ -1,0 +1,22 @@
+env/
+__pycache__/
+xai/
+objectbox/
+# Ignore sensitive environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore common OS and editor files
+.vscode/ # VS Code settings
+
+# Ignore build artifacts and generated files
+/dist
+/build
+/coverage
+
+# Ignore log files
+*.log
+

@@ -1,0 +1,13 @@
+streamlit
+langchain
+langchain_groq
+langchain_community
+langchain_huggingface
+langchain_objectbox
+sentence-transformers
+pinecone-client
+pinecone-text
+scikit-learn
+nltk
+python-dotenv
+pypdf
