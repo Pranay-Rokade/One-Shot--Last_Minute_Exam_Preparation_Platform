@@ -18,4 +18,6 @@ objectbox/
 
 # Ignore log files
 *.log
-
+figures.py
+Figure_7.3.1_Comparative_Analysis.png
+Figure_7.1.1_and_7.2.1_Retrieval_Accuracy_vs_K.png

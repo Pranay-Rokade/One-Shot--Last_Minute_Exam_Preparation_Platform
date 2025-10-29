@@ -7,7 +7,7 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from config import *
-from pinecone_setup import initialize_pinecone
+from pinecone_setup import initialize_pinecone, delete_existing_index
 from llmembedding_setup import setup_llm
 from document_processor import process_uploaded_files
 from prompts import topics_prompt, future_qs_prompt, get_explanation_prompt, composite_verbalize_prompt
@@ -73,3 +73,12 @@ if "retriever" in st.session_state:
     render_system_info()
 else:
     st.info("👆 Please upload and process your study materials first")
+    
+# Button to delete the existing index
+if st.button("🗑️ Delete Existing Pinecone Index"):
+    with st.spinner("Checking and deleting index..."):
+        message = delete_existing_index()
+        if "deleted successfully" in message:
+            st.success(message)
+        else:
+            st.warning(message)
