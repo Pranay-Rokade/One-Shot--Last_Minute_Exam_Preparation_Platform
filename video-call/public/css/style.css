@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'); /* Added a modern sans-serif font for better readability */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px; /* Kept for rem scaling */
+}
+
+body {
+    background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%); /* Modern dark gradient background for a sleek, app-like feel */
+    font-size: 1.6rem;
+    font-family: "Inter", sans-serif; /* Switched to Inter for a cleaner, more modern look; kept Lora for headings if needed */
+    color: #e0e0e0; /* Light text for contrast on dark background */
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+ul li {
+    list-style: none;
+}
+
+/* || standard fonts */
+.lg-h-font {
+    font-size: 3.2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+.h-font {
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: #ffffff; /* Brighter for headings */
+}
+.p-font {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+.s-font {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* || styling main container */
+.main-container {
+    height: 100vh;
+    display: flex;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
+}
+
+/* || styling caller list - side menu */
+.caller-list-heading {
+    margin: 2rem 1.5rem 1rem;
+    color: #00d4aa; /* Accent color for headings */
+    text-align: center;
+    border-bottom: 2px solid #00d4aa; /* Underline for emphasis */
+    padding-bottom: 0.5rem;
+}
+.caller-list-wrapper {
+    flex-basis: 30rem;
+    border-right: 1px solid #333; /* Subtle dark border */
+    height: 100%;
+    background: linear-gradient(180deg, #2a2a3e 0%, #1e1e2e 100%); /* Gradient for sidebar */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); /* Shadow for separation */
+    overflow-y: auto; /* Scroll if needed */
+}
+.caller-list > li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05); /* Semi-transparent for glassmorphism effect */
+    margin: 0.5rem 1rem;
+    border-radius: 12px; /* More rounded for modern look */
+    cursor: pointer;
+    font-size: 1.6rem;
+    font-weight: 500;
+    transition: all 0.3s ease; /* Smooth hover transition */
+    border: 1px solid transparent; /* For hover effect */
+}
+.caller-list > li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-color: #00d4aa; /* Accent border on hover */
+}
+.call-btn {
+    border: none;
+    background: linear-gradient(45deg, #00d4aa, #007bff); /* Gradient button */
+    color: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.call-btn:hover {
+    transform: scale(1.1); /* Scale on hover */
+}
+
+/* || video call container styling */
+.video-call-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem; /* Better spacing */
+}
+.video-streams {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px; /* Limit width for large screens */
+}
+.local-video,
+.remote-video {
+    flex: 1;
+    width: 100%;
+    min-height: 40rem;
+    max-height: 50rem;
+    background: #000;
+    border-radius: 16px; /* Rounded corners */
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6); /* Dramatic shadow */
+    position: relative;
+}
+.local-video::before,
+.remote-video::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0, 212, 170, 0.1), rgba(0, 123, 255, 0.1)); /* Subtle overlay */
+    pointer-events: none;
+    z-index: 1;
+}
+.local-video video,
+.remote-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Better fit for videos */
+    border-radius: 16px;
+}
+
+.call {
+    border: none;
+    outline: none;
+    width: 6rem; /* Slightly larger */
+    height: 6rem;
+    background: linear-gradient(45deg, #ff4757, #ff3838); /* Red gradient for disconnect */
+    box-shadow: 0 4px 16px rgba(255, 71, 87, 0.4);
+    border-radius: 50%;
+    margin: 2rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.call:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 71, 87, 0.6);
+}
+.call img {
+    width: 50%; /* Scale icon */
+}
+
+.d-none {
+    display: none;
+}
+
+.username-input {
+    margin: 2rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.username-input input {
+    width: 30rem;
+    height: 4rem;
+    padding: 1rem;
+    outline: none;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    transition: border-color 0.3s ease;
+}
+.username-input input:focus {
+    border-color: #00d4aa;
+    box-shadow: 0 0 10px rgba(0, 212, 170, 0.5);
+}
+.username-input input::placeholder {
+    color: #aaa;
+    font-family: "Inter", sans-serif;
+}
+.username-input button {
+    height: 4rem;
+    outline: none;
+    border: none;
+    background: linear-gradient(45deg, #00d4aa, #007bff);
+    color: white;
+    padding: 0 2rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.username-input button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* || Responsiveness */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+    .caller-list-wrapper {
+        flex-basis: auto;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #333;
+    }
+    .video-streams {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .local-video,
+    .remote-video {
+        min-height: 25rem;
+        max-height: 30rem;
+    }
+    .username-input input {
+        width: 20rem;
+    }
+}
