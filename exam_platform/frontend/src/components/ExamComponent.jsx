@@ -19,12 +19,16 @@ function ExamComponent() {
       setLoading(true);
       const response = await axios.post("http://127.0.0.1:8000/generate-questions")
 
-      if (!response.ok) {
+      console.log(response.data)
+      if (!response.status === 200) {
         throw new Error('Failed to fetch questions');
       }
 
-      const raw = await response.json();
-      const data = JSON.parse(raw.questions);
+      const raw = response.data.questions;
+
+      console.log(raw)
+     
+      const data = JSON.parse(raw);
       setQuestions(data);
       setLoading(false);
     } catch (err) {
