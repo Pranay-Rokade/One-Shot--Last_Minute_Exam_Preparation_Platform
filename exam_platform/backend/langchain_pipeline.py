@@ -10,8 +10,7 @@ def generate_mcqs_from_context(context: str):
     """Generate 10 MCQs with 4 options and correct answers using LLM"""
     
     prompt_template = PromptTemplate.from_template("""
-    You are an expert educator.
-    Based on the following context, generate exactly 10 multiple-choice questions.
+    You are an experienced exam setter. Based on the given previous year questions and context, generate exactly 10 multiple-choice questions that could appear in the next exam.
     Each question must have:
     - question text
     - 4 options (A, B, C, D)
